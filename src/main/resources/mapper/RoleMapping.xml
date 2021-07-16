@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.px.mapper.RoleMapper">
+    <resultMap id="roleModel" type="com.px.model.RoleModel">
+        <id property="id" column="id" />
+        <result property="name" column="name" />
+        <result property="description" column="description" />
+    </resultMap>
+    <!--    获取指定角色的信息-->
+    <select id="findRoleByName"  resultMap="roleModel" parameterType="String">
+        select * from blog_role where name=#{roleName};
+    </select>
+
+</mapper>
+
+

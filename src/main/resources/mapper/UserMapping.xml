@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.px.mapper.UserMapper">
+    <resultMap id="roleMap" type="com.px.model.UserModel">
+        <id property="id" column="id" />
+        <result property="username" column="username" />
+        <result property="token" column="token" />
+        <result property="password" column="password" />
+        <collection property="roleModel" ofType="com.px.model.RoleModel">
+            <id property="id" column="role_id" />
+            <result property="name" column="name" />
+            <result property="description" column="description" />
+        </collection>
+    </resultMap>
+
+    <!--    获取制定用户的 名字和权限-->
+    <select id="findUserByName"  resultMap="roleMap" parameterType="String">
+        select u.*,r.id as role_id, r.name,r.description from blog_user u left join blog_user_role u_r on u_r.user_id=u.id
+        Left JOIN blog_role r on  u_r.role_id=r.id where u.username=#{username}
+    </select>
+
+</mapper>

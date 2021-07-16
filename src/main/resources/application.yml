@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    druid:
+      username: root
+      password: 1q2w3e4r
+      url: jdbc:mysql://localhost:3306/blog?autoReconnect=true&allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  # 配置mybatis
+mybatis:
+  mapper-locations: classpath:mapper/*.xml # mybatis的路径，我们放到resources下的com/mapper文件夹下面
+  type-aliases-package: com.px.model # 默认别名就是实
