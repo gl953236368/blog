@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.px.mapper.ArticleMapper">
+    <resultMap id="articleModel" type="com.px.model.ArticleModel">
+        <id property="id" column="id" />
+        <result property="username" column="username" />
+        <result property="title" column="title" />
+        <result property="intro"  column="intro" />
+        <result property="content" column="content" />
+        <result property="createDate" column="create_date" />
+        <result property="updateDate" column="update_date" />
+        <result property="status" column="status" />
+    </resultMap>
+
+    <!--    获取所有文章的信息-->
+    <select id="getAllArticle"  resultMap="articleModel">
+        select * from blog_article;
+    </select>
+
+</mapper>
+
+

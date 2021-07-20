@@ -6,6 +6,8 @@ import com.px.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -15,5 +17,21 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserModel findUserByName(String username) {
         return userMapper.findUserByName(username);
+    }
+
+    @Override
+    public List<UserModel> getUserList() {
+        return userMapper.getUserList();
+    }
+
+    @Override
+    public void toSaveUser(UserModel userModel) {
+        userMapper.toSaveUser(userModel);
+        userMapper.toSaveUserAndRole(userModel.getUsername());
+    }
+
+    @Override
+    public void toEditUserRole(int userId, int roleId) {
+        userMapper.toEditUserRole(userId, roleId);
     }
 }

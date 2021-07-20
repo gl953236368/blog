@@ -2,7 +2,10 @@ import io.jsonwebtoken.Jwts;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.io.UnsupportedEncodingException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Base64;
+import java.util.Date;
 
 public class Test {
     public static void tst() throws UnsupportedEncodingException {
@@ -15,8 +18,8 @@ public class Test {
         System.out.println(user);
     }
     public static void main(String[] args) throws UnsupportedEncodingException {
-//        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-//        System.out.println(bCryptPasswordEncoder.encode("111111"));
-        tst();
+        String reqUrl = "/auth/edit/role?userId=3&roleId=2";
+        String url =reqUrl.substring(0, reqUrl.indexOf("?"));
+        System.out.println(url);
     }
 }

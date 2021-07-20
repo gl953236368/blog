@@ -80,7 +80,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 })
                 .and()
                 .formLogin()
-//                .loginPage("/auth/login")
+                .loginPage("/auth/login")
                 .permitAll()//允许所有用户
                 .successHandler(successHandler)//登录成功处理逻辑
                 .failureHandler(failureHandler)//登录失败处理逻辑

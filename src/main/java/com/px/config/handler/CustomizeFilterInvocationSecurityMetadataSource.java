@@ -24,8 +24,9 @@ public class CustomizeFilterInvocationSecurityMetadataSource implements FilterIn
     public Collection<ConfigAttribute> getAttributes(Object o) throws IllegalArgumentException {
         // 获取请求地址
         String reqUrl = ((FilterInvocation) o).getRequestUrl();
-        System.out.println("请求路径:"+reqUrl);
-        List<PermissionModel> permissions = permissionService.findPermissionsByPath(reqUrl);
+        String pathUrl = reqUrl.split("\\?")[0];
+        System.out.println("请求路径:"+pathUrl);
+        List<PermissionModel> permissions = permissionService.findPermissionsByPath(pathUrl);
         if (permissions == null || permissions.size() == 0) {
             //无配置 无权限 任何都可访问
             return null;
