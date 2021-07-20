@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.px.mapper.TagMapper">
+    <resultMap id="tagModel" type="com.px.model.TagModel">
+        <id property="id" column="id" />
+        <result property="name" column="name" />
+        <result property="description" column="description" />
+        <result property="createDate" column="create_date" />
+    </resultMap>
+
+    <!--    获取对应文章的标签 -->
+    <select id="findTagByArticleId"  resultMap="tagModel" parameterType="int">
+        select t.* from blog_tag t LEFT JOIN blog_article_tag a_t on a_t.tag_id=t.id
+        LEFT JOIN blog_article a on a_t.article_id=a.id where a.id=#{id}
+    </select>
+
+</mapper>
+
+

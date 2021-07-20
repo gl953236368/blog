@@ -1,5 +1,6 @@
 package com.px.model;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -9,9 +10,27 @@ import java.util.List;
 public class UserModel {
     private int id;
     private String username;
+    private String nickname;
     private String password;
     private String token;
     RoleModel roleModel;
+    private Date createTime;
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
 
     public void setToken(String token) {
         this.token = token;
